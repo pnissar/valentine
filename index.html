@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To Nithya ❤️</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+  </head>
+
+  <body>
+    <div id="hearts"></div>
+
+    <h1 class="main-title">For My Nithya 💖</h1>
+
+   <div class="slider-container">
+  <button class="nav left" onclick="prevSlide()">❮</button>
+
+  <div class="slider" id="slider">
+
+    <div class="slide">
+      <h2>🌹 Rose Day</h2>
+      <img src="Gif/rose.gif" class="gif" />
+      <p class="main-text">You are the most beautiful rose in my life ❤️</p>
+      <p class="sub-text">Every petal of my heart blooms only for you 🌹✨</p>
+    </div>
+
+    <div class="slide">
+      <h2>💍 Propose Day</h2>
+      <img src="Gif/propose.webp" class="gif" />
+      <p class="main-text">Will you be mine forever Nithya? 💖</p>
+      <p class="sub-text">I promise to love you in every lifetime 💍✨</p>
+    </div>
+
+    <div class="slide">
+      <h2>🍫 Chocolate Day</h2>
+      <img src="Gif/chocolate.gif" class="gif" />
+      <p class="main-text">You make my life sweeter every day 😘</p>
+      <p class="sub-text">Sweeter than chocolate, brighter than stars 🍫💫</p>
+    </div>
+
+    <div class="slide">
+      <h2>🧸 Teddy Day</h2>
+      <img src="Gif/teddy.gif" class="gif" />
+      <p class="main-text">I wish I could hug you like this teddy 🧸💕</p>
+      <p class="sub-text">Your warmth is my favorite comfort 🥰</p>
+    </div>
+
+    <div class="slide">
+      <h2>🤝 Promise Day</h2>
+      <img src="Gif/promise.webp" class="gif" />
+      <p class="main-text">I promise to stay with you forever 💞</p>
+      <p class="sub-text">Through every smile, every tear, every dream 🤝💖</p>
+    </div>
+
+    <div class="slide">
+      <h2>🤗 Hug Day</h2>
+      <img src="Gif/hug.webp" class="gif" />
+      <p class="main-text">Your hugs are my safest place 💖</p>
+      <p class="sub-text">In your arms, I find my whole world 🌎💞</p>
+    </div>
+
+    <div class="slide">
+      <h2>😘 Kiss Day</h2>
+      <img src="Gif/kiss.webp" class="gif" />
+      <p class="main-text">Your smile steals my heart every time 💓</p>
+      <p class="sub-text">One kiss from you is my happiness forever 😘✨</p>
+    </div>
+
+    <div class="slide">
+      <h2>❤️ Valentine’s Day</h2>
+      <img src="Gif/valentine.webp" class="gif" />
+      <p class="main-text">I Love You Forever Nithya ✨❤️</p>
+      <p class="sub-text">You are my today, tomorrow and always 💖</p>
+    </div>
+
+  </div>
+
+  <button class="nav right" onclick="nextSlide()">❯</button>
+</div>
+
+
+    <script>
+      let currentIndex = 0;
+      const slider = document.getElementById("slider");
+      const slides = document.querySelectorAll(".slide");
+
+      function updateSlide() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide();
+      }
+
+      const heartsContainer = document.getElementById("hearts");
+
+      const heartEmojis = ["💖", "💕", "💘", "💝", "💗", "💞", "💓"];
+
+      function createHeart() {
+        const heart = document.createElement("span");
+        heart.innerHTML =
+          heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+        const size = Math.random() * 20 + 15;
+        heart.style.fontSize = size + "px";
+        heart.style.opacity = Math.random();
+
+        const direction = Math.floor(Math.random() * 5);
+
+        // Bottom to Top
+        if (direction === 0) {
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.bottom = "-40px";
+          heart.style.animation = `floatUp ${Math.random() * 5 + 6}s linear forwards`;
+        }
+
+        // Top to Bottom
+        if (direction === 1) {
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = "-40px";
+          heart.style.animation = `floatDown ${Math.random() * 5 + 6}s linear forwards`;
+        }
+
+        // Left to Right
+        if (direction === 2) {
+          heart.style.left = "-40px";
+          heart.style.top = Math.random() * 100 + "vh";
+          heart.style.animation = `floatRight ${Math.random() * 5 + 6}s linear forwards`;
+        }
+
+        // Right to Left
+        if (direction === 3) {
+          heart.style.right = "-40px";
+          heart.style.top = Math.random() * 100 + "vh";
+          heart.style.animation = `floatLeft ${Math.random() * 5 + 6}s linear forwards`;
+        }
+
+        // Diagonal
+        if (direction === 4) {
+          heart.style.left = "-40px";
+          heart.style.bottom = "-40px";
+          heart.style.animation = `floatDiagonal ${Math.random() * 6 + 6}s linear forwards`;
+        }
+
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 12000);
+      }
+
+      setInterval(createHeart, 250);
+    </script>
+  </body>
+</html>
