@@ -104,14 +104,28 @@ body{
 
 .slide h2{
   font-size:clamp(1.4rem, 3vw, 2rem);
+  color:white; /* Emoji keeps normal color */
+}
 
-  background: linear-gradient(90deg, #ff6a88, #ff99ac, #ffdde1);
+/* Apply gradient ONLY to text span */
+.slide h2 span{
+  background: linear-gradient(60deg,
+              #ff6ec4,
+              #ff4d6d,
+              #ffcc70,
+              #ff00ff);
+
+  background-size:250% 250%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
-  background-size:200% auto;
-  animation:textGradientMove 5s linear infinite;
+  animation:textGradientMove 6s ease infinite;
+
+  text-shadow:
+    0 0 8px rgba(255,105,180,0.6),
+    0 0 18px rgba(255,0,128,0.4);
 }
+
 
 /* Main Romantic Line */
 
@@ -272,4 +286,79 @@ body{
     font-size:1rem;
   }
 
+}
+
+/* ================= FINAL SLIDE EFFECT ================= */
+
+.final-slide{
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft Glow Pulse Behind GIF */
+.love-glow{
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.love-glow::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+
+  background:radial-gradient(circle,
+              rgba(255,105,180,0.9),
+              rgba(255,20,147,0.6),
+              transparent);
+
+  /* 🔥 Glow Shadow Effect */
+  box-shadow:
+    0 0 30px rgba(255,105,180,0.8),
+    0 0 60px rgba(255,20,147,0.6),
+    0 0 100px rgba(255,0,128,0.4);
+
+  filter: blur(10px);
+
+  animation:pulseGlow 3s infinite ease-in-out;
+
+  z-index:-1;
+}
+
+
+@keyframes pulseGlow{
+  0%{ transform:scale(0.9); opacity:0.7; }
+  50%{ transform:scale(1.1); opacity:1; }
+  100%{ transform:scale(0.9); opacity:0.7; }
+}
+
+/* Confetti Hearts */
+
+.confetti-container{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  pointer-events:none;
+}
+
+.confetti-container span{
+  position:absolute;
+  font-size:20px;
+  animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+  from{
+    transform:translateY(-50px) rotate(0deg);
+    opacity:1;
+  }
+  to{
+    transform:translateY(100vh) rotate(360deg);
+    opacity:0;
+  }
 }
