@@ -254,7 +254,7 @@ body{
   .slider-container{
     width:95%;
     padding:10px;
-    height: 75%;
+    height: 60%;
   }
 
   .slide{
@@ -272,11 +272,11 @@ body{
   .right{ right:5px; }
 
   .main-text{
-    font-size:1rem;
+    font-size:1.1rem;
   }
 
   .sub-text{
-    font-size:0.85rem;
+    font-size:1rem;
   }
 }
 
@@ -286,6 +286,11 @@ body{
     width:40px;
     height:40px;
     font-size:1rem;
+  }
+  .slider-container{
+    width:95%;
+    padding:10px;
+    height: 60%;
   }
 
 }
