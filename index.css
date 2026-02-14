@@ -74,6 +74,7 @@ body{
 
   border:1px solid rgba(255,255,255,0.4);
   z-index:2;
+  height: 60%;
 }
 
 /* ================= SLIDER ================= */
@@ -96,8 +97,6 @@ body{
   flex-direction:column;
   justify-content:space-evenly;
   align-items:center;
-
-  min-height:450px;
 }
 
 /* Slide Heading Gradient */
@@ -257,7 +256,7 @@ body{
 
   .slide{
     padding:30px 20px;
-    min-height:auto;
+    /* min-height:600px; */
   }
 
   .nav{

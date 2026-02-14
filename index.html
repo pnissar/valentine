@@ -180,16 +180,36 @@
       const confettiHearts = ["💖", "💕", "💘", "💝", "💗"];
 
       function createConfetti() {
-        for (let i = 0; i < 20; i++) {
-          const heart = document.createElement("span");
-          heart.innerHTML =
-            confettiHearts[Math.floor(Math.random() * confettiHearts.length)];
-          heart.style.left = Math.random() * 100 + "%";
-          heart.style.animationDuration = Math.random() * 2 + 2 + "s";
-          confettiContainer.appendChild(heart);
-          setTimeout(() => heart.remove(), 3000);
-        }
-      }
+
+  const slideWidth = slider.offsetWidth;
+  const slideHeight = slider.offsetHeight;
+
+  for (let i = 0; i < 40; i++) {   // more emojis
+
+    const heart = document.createElement("span");
+
+    heart.innerHTML =
+      confettiHearts[Math.floor(Math.random() * confettiHearts.length)];
+
+    // Random position inside slide
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = Math.random() * 100 + "%";
+
+    // Random size
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    // Random animation duration
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    // Random horizontal movement
+    heart.style.setProperty('--x-move',
+      (Math.random() * 200 - 100) + "px");
+
+    confettiContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+  }
+}
 
       /* Trigger only when last slide visible */
       function updateSlide() {
